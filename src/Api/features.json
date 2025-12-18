@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "heading": "AI-Powered Content",
+    "description": "Get intelligent suggestions for bullet points, summaries, and skills tailored to your industry.",
+    "icon": "ri-magic-line"
+  },
+  {
+    "id": 2,
+    "heading": "ATS Optimized",
+    "description": "Resumes are automatically optimized to pass applicant tracking systems.",
+    "icon": "ri-file-search-line"
+  },
+  {
+    "id": 3,
+    "heading": "Real-time Preview",
+    "description": "See your resume come to life as you type with instant formatting and layout updates.",
+    "icon": "ri-flashlight-line"
+  },
+  {
+    "id": 4,
+    "heading": "Download",
+    "description": "Save your resume in multiple formats and share it instantly with employers.",
+    "icon": "ri-download-cloud-line"
+  }
+]
