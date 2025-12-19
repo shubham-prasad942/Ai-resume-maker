@@ -18,6 +18,10 @@ body,
   background: linear-gradient(135deg, #5048e5, #883bed);
 }
 
+.bg-secondary {
+  background: linear-gradient(135deg, #883bed, #ab46dd);
+}
+
 .card-bg {
   background: linear-gradient(180deg, #fff, #f9fafb);
 }
@@ -30,7 +34,23 @@ body,
 
 .text-secondary {
   background: linear-gradient(135deg, #883bed, #ab46dd);
+  background: linear-gradient(135deg, #883bed, #ab46dd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.input-class {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 0.75rem; 
+  background-color: #ffffff; 
+  font-size: 0.875rem; 
+  outline: none;
+}
+
+.input-class:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px var(--primary-color); 
+  border-color: var(--primary-color);
+}
