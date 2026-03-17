@@ -1,11 +1,11 @@
 [
-    {"img": "public/user2real.png",
+    {"img": "/user2real.png",
       "text": "Fresh Graduates"
     },
-    {"img": "public/user3real.png",
+    {"img": "/user3real.png",
       "text": "Career Switchers"
     },
-    {"img": "public/user4real.png",
+    {"img": "/user4real.png",
       "text": "Non-tech"
     }
 ]
