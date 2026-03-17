@@ -5,7 +5,7 @@ import image from "/public/image/resumeAbout.gif";
 const Description = () => {
   const navigate = useNavigate();
   //Function to navigate to the about page
-  const aboutPage = (): void => {
+  const aboutPage = ()=> {
     navigate("/about");
   };
   return (

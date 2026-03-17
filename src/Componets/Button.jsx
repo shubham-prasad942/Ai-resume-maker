@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 const Button = () => {
   const navigate = useNavigate();
   // function to navigate to the form page
-  const openForm = (): void => {
-    navigate("/form");
+  const openForm = () => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      navigate("/form");
+    } else {
+      alert("User is not login");
+      navigate("/login")
+    }
   };
   return (
     <>

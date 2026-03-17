@@ -3,11 +3,11 @@ import React, { useState } from "react";
 // Contact form
 const Contact = () => {
   // states for inputs
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   // Function for handling form
-  const formHandle = (e: React.FormEvent<HTMLFormElement>) => {
+  const formHandle = (e) => {
     e.preventDefault();
     setName("");
     setEmail("");
@@ -15,14 +15,13 @@ const Contact = () => {
     alert("Form submitted successfully");
   };
   // Functions for settting states
-  const nameHandle = (val: string) => {
-    console.log(val);
+  const nameHandle = (val) => {
     setName(val);
   };
-  const emailHandle = (val: string) => {
+  const emailHandle = (val) => {
     setEmail(val);
   };
-  const messageHandle = (val: string) => {
+  const messageHandle = (val) => {
     setMessage(val);
   };
   return (

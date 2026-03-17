@@ -7,11 +7,11 @@ const App = () => {
   return (
     <div className='min-h-screen w-full px-6 sm:px-10 md:px-20 bg-[#fffbf0]  text-[#273006]'>
        {/* Navbar */}
-       <header><Navbar/></header>
+       <header className="print:hidden"><Navbar/></header>
        {/* Main content  */}
        <main><Outlet/></main>
        {/* Footer */}
-       <footer><Footer/></footer>
+       <footer className="print:hidden"><Footer/></footer>
     </div>
   )
 }

@@ -39,7 +39,7 @@ body,
   -webkit-text-fill-color: transparent;
 }
 
-.input-class {
+.input {
   width: 100%;
   border-radius: 0.5rem;
   border: 1px solid #d1d5db;

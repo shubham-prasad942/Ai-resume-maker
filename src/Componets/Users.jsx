@@ -12,7 +12,7 @@ const Users = () => {
         minutes.
       </p>
       <div className=" flex flex-wrap justify-center items-center gap-3 sm:gap-5">
-        {users.map((elem, idx: number) => {
+        {users.map((elem, idx) => {
           return (
             <div key={idx} className="bg-white shadow-xl rounded-2xl space-y-3.5 p-2">
               <img className="h-50 sm:h-60" src={elem.img} alt="user" />
