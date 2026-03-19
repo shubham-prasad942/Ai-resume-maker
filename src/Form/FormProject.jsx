@@ -6,6 +6,8 @@ const FormProject = () => {
   const [projectLink, setProjectLink] = useState("");
   const [description, setDescription] = useState("");
 
+  const [errors, setErrors] = useState({});
+
   const context = useContext(ResumeContext);
   if (!context) {
     throw new Error("FormProject must be used inside ResumeProvider");
@@ -13,8 +15,38 @@ const FormProject = () => {
 
   const { setResumeData, resumeData } = context;
 
+  const validate = () => {
+    let newErrors = {};
+    const textRegex = /^[A-Za-z\s]+$/;
+    const urlRegex = /^(https?:\/\/)?([\w\d-]+\.)+\w{2,}(\/.*)?$/;
+
+    // Project Name
+    if (!projectName.trim()) {
+      newErrors.projectName = "Project name is required";
+    } else if (!textRegex.test(projectName)) {
+      newErrors.projectName = "No numbers allowed";
+    }
+
+    // Project Link
+    if (!projectLink.trim()) {
+      newErrors.projectLink = "Project link is required";
+    } else if (!urlRegex.test(projectLink)) {
+      newErrors.projectLink = "Enter valid URL";
+    }
+
+    // Description
+    if (!description.trim()) {
+      newErrors.description = "Description required";
+    } else if (description.length < 10) {
+      newErrors.description = "Minimum 10 characters required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleProject = () => {
-    if (!projectName) return;
+    if (!validate()) return;
 
     setResumeData((prev) => ({
       ...prev,
@@ -31,6 +63,7 @@ const FormProject = () => {
     setProjectName("");
     setProjectLink("");
     setDescription("");
+    setErrors({});
   };
 
   const removeProjects = (idx) => {
@@ -46,26 +79,35 @@ const FormProject = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <input
-          className="input"
-          placeholder="Project name"
-          value={projectName}
-          onChange={(e) => setProjectName(e.target.value)}
-        />
+        <div>
+          <input
+            className="input"
+            placeholder="Project name"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+          />
+          {errors.projectName && <p className="text-primary text-sm">{errors.projectName}</p>}
+        </div>
 
-        <input
-          className="input"
-          placeholder="Project link"
-          value={projectLink}
-          onChange={(e) => setProjectLink(e.target.value)}
-        />
+        <div>
+          <input
+            className="input"
+            placeholder="Project link"
+            value={projectLink}
+            onChange={(e) => setProjectLink(e.target.value)}
+          />
+          {errors.projectLink && <p className="text-primary text-sm">{errors.projectLink}</p>}
+        </div>
 
-        <input
-          className="input"
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        <div>
+          <input
+            className="input"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          {errors.description && <p className="text-primary text-sm">{errors.description}</p>}
+        </div>
       </div>
 
       <div className="flex justify-center mt-4">
