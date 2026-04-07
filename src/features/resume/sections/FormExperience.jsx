@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { ResumeContext } from "../../../components/context/ResumeContext";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/Button";
@@ -14,7 +14,7 @@ const FormExperience = ({ setIsStepValid }) => {
     endDate: "",
     description: "",
   });
-  console.log( newExp.endDate > newExp.startDate);
+  console.log(newExp.endDate > newExp.startDate);
 
   const [errors, setErrors] = useState({});
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -24,7 +24,10 @@ const FormExperience = ({ setIsStepValid }) => {
       ...prev,
       [name]: value,
     }));
-    const error = validateField(name, value, experienceValidation, {...newExp , [name] : value});
+    const error = validateField(name, value, experienceValidation, {
+      ...newExp,
+      [name]: value,
+    });
     setErrors((prev) => ({
       ...prev,
       [name]: error || "",
@@ -47,7 +50,12 @@ const FormExperience = ({ setIsStepValid }) => {
   const handleExperience = () => {
     const newError = {};
     Object.keys(newExp).forEach((field) => {
-      const error = validateField(field, newExp[field], experienceValidation, newExp);
+      const error = validateField(
+        field,
+        newExp[field],
+        experienceValidation,
+        newExp,
+      );
       if (error) {
         newError[field] = error;
       }
@@ -150,4 +158,4 @@ const FormExperience = ({ setIsStepValid }) => {
   );
 };
 
-export default FormExperience;
+export default memo(FormExperience);

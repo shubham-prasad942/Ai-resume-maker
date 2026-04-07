@@ -1,10 +1,11 @@
-import AdditionalInfo from "../features/resume/sections/AdditionalInfo";
-import FormAbout from "../features/resume/sections/FormAbout";
-import FormAchievement from "../features/resume/sections/FormAchievement";
-import FormCollegeEdu from "../features/resume/sections/FormCollegeEdu";
-import FormExperience from "../features/resume/sections/FormExperience";
-import FormProject from "../features/resume/sections/FormProject";
-import FormSchoolEdu from "../features/resume/sections/FormSchoolEdu";
+import { lazy } from "react";
+const FormAbout = lazy(() => import("../features/resume/sections/FormAbout"));
+const FormAchievement = lazy(() => import("../features/resume/sections/FormAchievement"));
+const FormExperience = lazy(() => import("../features/resume/sections/FormExperience"));
+const FormSchoolEdu = lazy(() => import("../features/resume/sections/FormSchoolEdu"));
+const FormCollegeEdu = lazy(() => import("../features/resume/sections/FormCollegeEdu"));
+const FormProject = lazy(() => import("../features/resume/sections/FormProject"));
+const AdditionalInfo = lazy(() => import("../features/resume/sections/AdditionalInfo"));
 
 const data = [
   { title: "About", component: FormAbout },

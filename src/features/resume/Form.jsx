@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { Suspense, useContext, useState } from "react";
 import data from "../../constants/formData.js";
 import { ResumeContext } from "../../components/context/ResumeContext";
 import { useNavigate } from "react-router-dom";
@@ -7,12 +7,12 @@ import Button from "../../components/ui/Button.jsx";
 
 const Form = () => {
   //states & navigate hook
-  const { resumeData, setGeminiData, geminiData} = useContext(ResumeContext);
+  const { resumeData, setGeminiData, geminiData } = useContext(ResumeContext);
   const [isLoading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [isStepValid, setIsStepValid] = useState(false);
   const navigate = useNavigate();
-   console.log(geminiData);
+  console.log(geminiData);
 
   //data component
   const Component = data[step].component;
@@ -37,8 +37,8 @@ const Form = () => {
       setGeminiData(data);
       navigate("/resume");
     } catch (err) {
- console.log("ERROR STATUS:", err.response?.status);
-  console.log("ERROR DATA:", err.response?.data);
+      console.log("ERROR STATUS:", err.response?.status);
+      console.log("ERROR DATA:", err.response?.data);
     } finally {
       setLoading(false);
     }
@@ -58,7 +58,9 @@ const Form = () => {
         </h1>
 
         <form onSubmit={handleForm}>
-          <Component setIsStepValid={setIsStepValid} />
+          <Suspense fallback={<p>Loading...</p>}>
+            <Component setIsStepValid={setIsStepValid} />
+          </Suspense>
 
           <div className="flex justify-center mt-4">
             {step === data.length - 1 && (

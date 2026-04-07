@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { ResumeContext } from "../../../components/context/ResumeContext";
 import Input from "../../../components/ui/Input";
 import validateField from "../../../components/utils/validation";
@@ -92,4 +92,4 @@ const FormSchoolEdu = ({ setIsStepValid }) => {
   );
 };
 
-export default FormSchoolEdu;
+export default memo(FormSchoolEdu);

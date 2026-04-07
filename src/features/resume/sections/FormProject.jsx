@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { ResumeContext } from "../../../components/context/ResumeContext";
 import Input from "../../../components/ui/Input";
 import validateField from "../../../components/utils/validation";
@@ -127,4 +127,4 @@ const FormProject = ({ setIsStepValid }) => {
   );
 };
 
-export default FormProject;
+export default memo(FormProject);

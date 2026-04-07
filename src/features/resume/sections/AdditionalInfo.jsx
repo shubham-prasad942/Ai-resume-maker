@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { ResumeContext } from "../../../components/context/ResumeContext";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/Button";
@@ -176,4 +176,4 @@ const AdditionalInfo = ({ setIsStepValid }) => {
   );
 };
 
-export default AdditionalInfo;
+export default memo(AdditionalInfo);
