@@ -1,19 +1,24 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "./Componets/Navbar"
-import Footer from "./Componets/Footer"
-
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 const App = () => {
   return (
-    <div className='min-h-screen w-full px-6 sm:px-10 md:px-20 bg-[#fffbf0]  text-[#273006]'>
-       {/* Navbar */}
-       <header className="print:hidden"><Navbar/></header>
-       {/* Main content  */}
-       <main><Outlet/></main>
-       {/* Footer */}
-       <footer className="print:hidden"><Footer/></footer>
+    <div className="min-h-screen w-full px-6 sm:px-10 md:px-20 bg-[#fffbf0]  text-[#273006]">
+      {/* Navbar */}
+      <header className="print:hidden">
+        <Navbar />
+      </header>
+      {/* Main content  */}
+      <main>
+        <Outlet />
+      </main>
+      {/* Footer */}
+      <footer className="print:hidden">
+        <Footer />
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
